@@ -1,4 +1,4 @@
-
+package jp.cedretaber.minispark
 
 import org.apache.spark.sql.SparkSession
 
