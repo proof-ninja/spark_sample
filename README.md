@@ -40,7 +40,6 @@ join メソッドで SQL の JOIN 相当の処理を行うことができます�
 
 ```
 sbt package
-sbt run
 ```
 
 で、 jar ファイルが生成されるので、それを spark-submit コマンドに渡してあげます。
