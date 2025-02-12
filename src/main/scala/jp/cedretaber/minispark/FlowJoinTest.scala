@@ -16,16 +16,12 @@ object FlowJoinTest {
     val relations = spark.read.option("header", true).csv("src/main/resources/user_langs.csv")
     relations.show()
 
-    val result = users
-      .join(relations, users("id") === relations("user_id"))
-      .join(langs, relations("lang_id") === langs("id"))
-    result.show()
-
-    import org.apache.spark.sql.extensions.FlowJoin._
+    import org.apache.spark.sql.extensions.FlowJoin2._
 
     val flowResult = users
-      .flowJoin(relations, users("id") === relations("user_id"))
-      .flowJoin(langs, relations("lang_id") === langs("id"))
+      .flowJoin(relations, "id", "user_id")
+      .flowJoin(langs, "lang_id", "id")
+      .sort("user_id", "lang_id")
     flowResult.show()
 
     spark.stop()
