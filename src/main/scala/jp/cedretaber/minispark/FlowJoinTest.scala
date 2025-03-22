@@ -6,6 +6,7 @@ import org.apache.spark.sql.{Row, SparkSession}
 
 import scala.jdk.CollectionConverters._
 
+// 各種splitのサンプル
 object FlowJoinTest {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder()
